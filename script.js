@@ -8,10 +8,6 @@
 //-         - va applicato uno sconto del 20% per i minorenni
 //-         - va applicato uno sconto del 40% per gli over 65.
 
-
-//?     MILESTONE 3:
-// Ora che la logica è funzionante in pagina, possiamo andare a dedicarci allo stile, raffinando la parte di HTML e CSS in modo da renderla esteticamente gradevole.
-
 /* 
 // COSA SO
 const costoBiglAlKm = 0.21;
@@ -54,6 +50,7 @@ const km = document.getElementById("km");
 const eta = document.getElementById("eta");
 const btnGenera = document.getElementById("btnGenera");
 const btnAnnulla = document.getElementById("btnAnnulla");
+const bigliettoFinale = document.getElementById("bigliettoFinale");
 
 // creo l'evento al click del bottone genera, recuperando i dati inseriti con .value
 btnGenera.addEventListener("click", function() {
@@ -83,6 +80,9 @@ btnGenera.addEventListener("click", function() {
     // mostro solo due decimali e stampo in console il prezzo finale
     prezzoFinale = prezzoFinale.toFixed(2);
     console.log(`Il prezzo finale del biglietto è: € ${prezzoFinale}`);
+
+    // stampo i dati inseriti e il prezzo finale su pagina
+    bigliettoFinale.innerHTML = `${nomeUtente} ${chilometri} ${etaUtente} ${prezzoFinale}`
 });
 
 // infine creo l'evento al click del bottone annulla, resettando i tre input
@@ -98,3 +98,8 @@ btnAnnulla.addEventListener("click", function () {
 // Solo una volta che il milestone 1 sarà completo e funzionante allora realizzeremo un form in pagina in cui l’utente potrà inserire i dati e visualizzare il calcolo finale con il prezzo.
 
 // Il recap dei dati e l'output del prezzo finale, andranno quindi stampati in pagina (il prezzo dovrà essere formattato con massimo due decimali, per indicare i centesimi sul prezzo). Questo richiederà un minimo di ricerca.
+
+//*_____________________________________________
+
+//?     MILESTONE 3:
+// Ora che la logica è funzionante in pagina, possiamo andare a dedicarci allo stile, raffinando la parte di HTML e CSS in modo da renderla esteticamente gradevole.
