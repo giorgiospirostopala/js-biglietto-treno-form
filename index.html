@@ -6,15 +6,18 @@
     <title>biglietto-dinamico</title>
 </head>
 <body>
-    <div>
-        <input type="text" id="km" placeholder="Inserisci km...">
-        <input type="text" id="eta" placeholder="Inserisci età...">
-    </div>
-    <br>
-    <div>
-        <button id="btnGenera">Genera</button>
-        <button id="btnAnnulla">Annulla</button>
-    </div>
+    <form action="#">
+        <div>
+            <input type="text" id="nome" placeholder="Inserisci il tuo nome..." required pattern="^[a-zA-Z\s]+$" title="Il nome non può contenere numeri o caratteri speciali.">
+            <input type="text" id="km" placeholder="Inserisci km..." required min="1" step="any" pattern="^\d+([.,]\d+)?$" title="Inserisci solo numeri, punti o virgole.">
+            <input type="number" id="eta" placeholder="Inserisci età..." required min="1" max="150" title="L'età deve essere un numero compreso tra 1 e 150.">
+        </div>
+        <br>
+        <div>
+            <button id="btnGenera">Genera</button>
+            <button id="btnAnnulla">Annulla</button>
+        </div>
+    </form>
 
     <script src="./script.js"></script>
 </body>
