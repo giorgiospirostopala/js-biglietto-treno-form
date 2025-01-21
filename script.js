@@ -1,0 +1,52 @@
+//?     Esercizio:
+//      Scrivere un programma che chieda all’utente:
+//-         - Il numero di chilometri da percorrere
+//-         - Età del passeggero
+
+//      Sulla base di ciò dovrà calcolare il prezzo totale del biglietto, secondo le regole:
+//-         - il prezzo del biglietto è definito in base ai km (0.21 € al km)
+//-         - va applicato uno sconto del 20% per i minorenni
+//-         - va applicato uno sconto del 40% per gli over 65.
+
+
+//?     MILESTONE 1:
+// Iniziamo implementando il programma senza alcuna estetica: usando esclusivamente due input e un bottone (non stilizzati), realizziamo le specifiche scritte sopra. La risposta finale (o output) sarà anch’essa da scrivere in console.
+
+//?     MILESTONE 2:
+// Solo una volta che il milestone 1 sarà completo e funzionante allora realizzeremo un form in pagina in cui l’utente potrà inserire i dati e visualizzare il calcolo finale con il prezzo.
+
+// Il recap dei dati e l'output del prezzo finale, andranno quindi stampati in pagina (il prezzo dovrà essere formattato con massimo due decimali, per indicare i centesimi sul prezzo). Questo richiederà un minimo di ricerca.
+
+//?     MILESTONE 3:
+// Ora che la logica è funzionante in pagina, possiamo andare a dedicarci allo stile, raffinando la parte di HTML e CSS in modo da renderla esteticamente gradevole.
+
+
+// COSA SO
+const costoBiglAlKm = 0.21;
+let sconto = 0;
+let scontoMinorenni = 0.8;
+let scontoAnziani = 0.6;
+
+// COSA CHIEDO
+let km = parseInt(prompt("Inserisci il numero di km che prevedi di percorrere"));
+let età = parseInt(prompt("Inserisci la tua età"));
+
+// CALCOLO IL PREZZO
+let prezzoStandard = km * costoBiglAlKm;
+let prezzoFinale;
+
+if (età < 18){
+    prezzoFinale = prezzoStandard * scontoMinorenni;
+    console.log(`Il costo del tuo biglietto è: € ${prezzoFinale}`);
+
+} else if (età > 65){
+    prezzoFinale = prezzoStandard * scontoAnziani;
+    console.log(`Il costo del tuo biglietto è: € ${prezzoFinale}`);
+
+} else {
+    prezzoFinale = prezzoStandard;
+    console.log(`Il costo del tuo biglietto è: € ${prezzoFinale}`);
+}
+
+// MOSTRO SOLO DUE DECIMALI
+prezzoFinale = prezzoFinale.toFixed(2);
