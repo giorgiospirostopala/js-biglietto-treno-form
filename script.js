@@ -49,10 +49,13 @@ const form = document.querySelector("form");
 const nome = document.getElementById("nome");
 const km = document.getElementById("km");
 const eta = document.getElementById("eta");
+
 const btnGenera = document.getElementById("btnGenera");
 const btnRicomincia = document.getElementById("btnRicomincia");
+
 const bigliettoNome = document.getElementById("bigliettoNome");
 const bigliettoPrezzoFinale = document.getElementById("bigliettoPrezzoFinale");
+
 const tipoOfferta = document.getElementById("tipoOfferta");
 const numeroCarrozzaRandom = document.getElementById("numeroCarrozzaRandom");
 const codiceRandom = document.getElementById("codiceRandom");
@@ -60,10 +63,13 @@ const nessunaOfferta = document.getElementById("nessunaOfferta");
 
 const scrittaOffertaHtml = nessunaOfferta.innerHTML;
 
+const biglietto = document.getElementById("biglietto");
+
 // creo l'evento al click del bottone genera, recuperando i dati inseriti con .value
 btnGenera.addEventListener("click", function(event) {
     
     //* .checkValidity() utilissimo per far convivere html-validation + event.preventDefault()
+    //*  ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
     if (form.checkValidity()) {
         event.preventDefault();
 
@@ -104,7 +110,7 @@ btnGenera.addEventListener("click", function(event) {
         prezzoFinale = prezzoFinale.toFixed(2);
 
         // stampo i dati inseriti e il prezzo finale su pagina
-        bigliettoNome.innerHTML = `${nomeUtente}`;
+        bigliettoNome.innerHTML = nomeUtente;
         bigliettoPrezzoFinale.innerHTML = `€ ${prezzoFinale}`;
     
         //* metodo per evitare la generazione di nuovi numeri se il campo è occupato
@@ -112,6 +118,8 @@ btnGenera.addEventListener("click", function(event) {
             numeroCarrozzaRandom.innerHTML = numeroRandom(1, 20);
             codiceRandom.innerHTML = numeroRandom(1000, 9999);
         }
+
+        biglietto.classList.remove("d-none");
 
     }
 
@@ -122,6 +130,7 @@ function numeroRandom(min, max) {
 }
 
 btnRicomincia.addEventListener("click", function() {
+    biglietto.classList.add("d-none");
     bigliettoNome.innerHTML = "-";
     bigliettoPrezzoFinale.innerHTML = "-";
     tipoOfferta.innerHTML = "-";
