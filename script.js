@@ -53,11 +53,16 @@ const btnGenera = document.getElementById("btnGenera");
 const bigliettoNome = document.getElementById("bigliettoNome");
 const bigliettoPrezzoFinale = document.getElementById("bigliettoPrezzoFinale");
 const tipoOfferta = document.getElementById("tipoOfferta");
+const numeroCarrozzaRandom = document.getElementById("numeroCarrozzaRandom");
+const codiceRandom = document.getElementById("codiceRandom");
+const nessunaOfferta = document.getElementById("nessunaOfferta");
+
+const scrittaOffertaHtml = nessunaOfferta.innerHTML;
 
 // creo l'evento al click del bottone genera, recuperando i dati inseriti con .value
 btnGenera.addEventListener("click", function(event) {
     
-    //* !!! .checkValidity() utilissimo per far convivere html-validation + event.preventDefault() !!!
+    //* .checkValidity() utilissimo per far convivere html-validation + event.preventDefault()
     if (form.checkValidity()) {
         event.preventDefault();
 
@@ -75,14 +80,24 @@ btnGenera.addEventListener("click", function(event) {
         let prezzoFinale;
 
         if (etaUtente < 18){
-            prezzoFinale = prezzoStandard * scontoMinorenni;
 
-        } else if (etaUtente > 65){
+            prezzoFinale = prezzoStandard * scontoMinorenni;
+            tipoOfferta.innerHTML = "Biglietto ridotto";
+            nessunaOfferta.innerHTML = scrittaOffertaHtml;
+
+        } else if (etaUtente >= 65){
+            
             prezzoFinale = prezzoStandard * scontoAnziani;
+            tipoOfferta.innerHTML = "Biglietto over 65";
+            nessunaOfferta.innerHTML = scrittaOffertaHtml;
 
         } else {
+
             prezzoFinale = prezzoStandard;
-        };
+            tipoOfferta.innerHTML = "Biglietto standard";
+            nessunaOfferta.innerHTML = "Nessuna Offerta";
+
+        }
 
         // mostro solo due decimali e stampo in console il prezzo finale
         prezzoFinale = prezzoFinale.toFixed(2);
@@ -91,10 +106,19 @@ btnGenera.addEventListener("click", function(event) {
         bigliettoNome.innerHTML = `${nomeUtente}`;
         bigliettoPrezzoFinale.innerHTML = `€ ${prezzoFinale}`;
     
-    } else {
-        // pippo
-    };
+        //* metodo per evitare la generazione di nuovi numeri se il campo è occupato
+        if (numeroCarrozzaRandom.innerHTML === "-" && codiceRandom.innerHTML === "-") {
+            numeroCarrozzaRandom.innerHTML = numeroRandom(1, 20);
+            codiceRandom.innerHTML = numeroRandom(1000, 9999);
+        }
+
+    }
+
 });
+
+function numeroRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 
 //*_____________________________________________
