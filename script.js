@@ -49,14 +49,14 @@ const nome = document.getElementById("nome");
 const km = document.getElementById("km");
 const eta = document.getElementById("eta");
 const btnGenera = document.getElementById("btnGenera");
-const btnAnnulla = document.getElementById("btnAnnulla");
 const bigliettoNome = document.getElementById("bigliettoNome");
-const bigliettoKm = document.getElementById("bigliettoKm");
-const bigliettoEta = document.getElementById("bigliettoEta");
 const bigliettoPrezzoFinale = document.getElementById("bigliettoPrezzoFinale");
+const tipoOfferta = document.getElementById("tipoOfferta");
 
 // creo l'evento al click del bottone genera, recuperando i dati inseriti con .value
-btnGenera.addEventListener("click", function() {
+btnGenera.addEventListener("click", function(event) {
+    event.preventDefault();
+
     const chilometri = parseFloat(km.value);
     const etaUtente = parseInt(eta.value);
     const nomeUtente = nome.value;
@@ -82,25 +82,12 @@ btnGenera.addEventListener("click", function() {
 
     // mostro solo due decimali e stampo in console il prezzo finale
     prezzoFinale = prezzoFinale.toFixed(2);
-    console.log(`Il prezzo finale del biglietto è: € ${prezzoFinale}`);
 
     // stampo i dati inseriti e il prezzo finale su pagina
-    bigliettoNome.innerHTML += `${nomeUtente}`;
-    bigliettoKm.innerHTML += `${chilometri} km`;
-    bigliettoEta.innerHTML += `${etaUtente} anni`;
-    bigliettoPrezzoFinale.innerHTML += `€ ${prezzoFinale}`;
+    bigliettoNome.innerHTML = `${nomeUtente}`;
+    bigliettoPrezzoFinale.innerHTML = `€ ${prezzoFinale}`;
 });
 
-// infine creo l'evento al click del bottone annulla, resettando i tre input
-btnAnnulla.addEventListener("click", function () {
-    km.value = "";
-    eta.value = "";
-    nome.value = "";
-    bigliettoEta.value = "";
-    bigliettoNome.value = "";
-    bigliettoKm.value = "";
-    bigliettoPrezzoFinale.value = "";
-});
 
 //*_____________________________________________
 
