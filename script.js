@@ -50,6 +50,7 @@ const nome = document.getElementById("nome");
 const km = document.getElementById("km");
 const eta = document.getElementById("eta");
 const btnGenera = document.getElementById("btnGenera");
+const btnRicomincia = document.getElementById("btnRicomincia");
 const bigliettoNome = document.getElementById("bigliettoNome");
 const bigliettoPrezzoFinale = document.getElementById("bigliettoPrezzoFinale");
 const tipoOfferta = document.getElementById("tipoOfferta");
@@ -119,6 +120,14 @@ btnGenera.addEventListener("click", function(event) {
 function numeroRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+btnRicomincia.addEventListener("click", function() {
+    bigliettoNome.innerHTML = "-";
+    bigliettoPrezzoFinale.innerHTML = "-";
+    tipoOfferta.innerHTML = "-";
+    numeroCarrozzaRandom.innerHTML = "-";
+    codiceRandom.innerHTML = "-";
+});
 
 
 //*_____________________________________________
