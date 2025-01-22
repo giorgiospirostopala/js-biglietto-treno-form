@@ -24,7 +24,8 @@
                 </div>
                 <div class="col-md-4">
                     <label for="eta" class="form-label">Fascia d'età</label>
-                    <select id="eta" class="form-select border-danger">
+                    <select id="eta" class="form-select border-danger" required>
+                        <option value="" disabled selected>Seleziona una fascia d'età</option>
                         <option>Minorenne</option>
                         <option>Maggiorenne</option>
                         <option>Over 65</option>
@@ -44,7 +45,7 @@
                 <table class="table table-bordered">
                     <thead class="table-light">
                         <tr>
-                            <th>NOME PASSEGGERO</th>
+                            <th class="bg-body-secondary">NOME PASSEGGERO</th>
                             <th>Offerta</th>
                             <th>Carrozza</th>
                             <th>Codice CP</th>
@@ -53,7 +54,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td id="bigliettoNome">Nome</td>
+                            <td id="bigliettoNome" class="bg-body-secondary"><strong>Nome</strong></td>
                             <td>Biglietto Standard</td>
                             <td>5</td>
                             <td>92911</td>
