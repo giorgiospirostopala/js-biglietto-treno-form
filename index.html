@@ -4,58 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>biglietto-dinamico</title>
+
+    <!--! il link al CSS sempre nell'head, quello a JS in fondo al body -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
-<body>
-    <form action="#">
-        <div>
-            <input 
-            type="text" 
-            id="nome" 
-            placeholder="Inserisci il tuo nome..." 
-            required pattern="^[a-zA-Z\s]+$" 
-            title="Il nome non può contenere numeri o caratteri speciali.">
+<body class="bg-danger text-white">
+    <div class="container py-5">
+        <h1 class="text-center mb-4">CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
+        <form class="bg-white text-dark p-4 rounded shadow">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="nome" class="form-label">Nome Cognome</label>
+                    <input type="text" id="nome" class="form-control border-danger" placeholder="Inserisci il tuo nome..." required pattern="^[a-zA-Z\s]+$" title="Il nome non può contenere numeri o caratteri speciali.">
+                </div>
+                <div class="col-md-4">
+                    <label for="km" class="form-label">Km da percorrere</label>
+                    <input type="text" id="km" class="form-control border-danger" placeholder="Inserisci km..." required min="1" step="any" pattern="^\d+([.,]\d+)?$" title="Inserisci solo numeri, punti o virgole.">
+                </div>
+                <div class="col-md-4">
+                    <label for="eta" class="form-label">Fascia d'età</label>
+                    <select id="eta" class="form-select border-danger">
+                        <option>Minorenne</option>
+                        <option>Maggiorenne</option>
+                        <option>Over 65</option>
+                    </select>
+                </div>
+            </div>
+            <div class="text-center">
+                <button id="btnGenera" class="btn btn-danger me-2">Genera</button>
+                <button id="btnAnnulla" class="btn btn-secondary">Annulla</button>
+            </div>
+        </form>
 
-            <input 
-            type="text" 
-            id="km" 
-            placeholder="Inserisci km..." 
-            required min="1" 
-            step="any" 
-            pattern="^\d+([.,]\d+)?$" 
-            title="Inserisci solo numeri, punti o virgole.">
-
-            <input 
-            type="number" 
-            id="eta" 
-            placeholder="Inserisci età..." 
-            required 
-            min="1" 
-            max="150" 
-            title="L'età deve essere un numero compreso tra 1 e 150.">
-        </div>
-        <br>
-        <div>
-            <button id="btnGenera">Genera</button>
-            <button id="btnAnnulla">Annulla</button>
-        </div>
-    </form>
-    <div>
-        <h2>RECAP DATI - DETTAGLIO PASSEGGERI</h2>
-        <br>
-        <div id="bigliettoNome">
-            <h3>NOME PASSEGGERO</h3>
-        </div>
-        <di id="bigliettoKm"v>
-            <h4>Km che intendi percorrere</h4>
-        </di>
-        <div id="bigliettoEta">
-            <h4>Età inserita</h4>
-        </div>
-        <div id="bigliettoPrezzoFinale">
-            <h4>Costo biglietto</h4>
+        <div class="mt-5">
+            <h2 class="text-center mb-4">IL TUO BIGLIETTO</h2>
+            <div class="bg-white text-dark p-4 rounded shadow">
+                <h4 class="mb-3">DETTAGLIO PASSEGGERI</h4>
+                <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>NOME PASSEGGERO</th>
+                            <th>Offerta</th>
+                            <th>Carrozza</th>
+                            <th>Codice CP</th>
+                            <th>Costo biglietto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="bigliettoNome">Nome</td>
+                            <td>Biglietto Standard</td>
+                            <td>5</td>
+                            <td>92911</td>
+                            <td id="bigliettoPrezzoFinale">2.10€</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./script.js"></script>
+    
 </body>
 </html>

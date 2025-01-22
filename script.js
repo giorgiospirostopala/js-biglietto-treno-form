@@ -86,9 +86,9 @@ btnGenera.addEventListener("click", function() {
 
     // stampo i dati inseriti e il prezzo finale su pagina
     bigliettoNome.innerHTML += `${nomeUtente}`;
-    bigliettoKm.innerHTML += `${chilometri}`;
-    bigliettoEta.innerHTML += `${etaUtente}`;
-    bigliettoPrezzoFinale.innerHTML += `${prezzoFinale}`;
+    bigliettoKm.innerHTML += `${chilometri} km`;
+    bigliettoEta.innerHTML += `${etaUtente} anni`;
+    bigliettoPrezzoFinale.innerHTML += `€ ${prezzoFinale}`;
 });
 
 // infine creo l'evento al click del bottone annulla, resettando i tre input
@@ -96,6 +96,10 @@ btnAnnulla.addEventListener("click", function () {
     km.value = "";
     eta.value = "";
     nome.value = "";
+    bigliettoEta.value = "";
+    bigliettoNome.value = "";
+    bigliettoKm.value = "";
+    bigliettoPrezzoFinale.value = "";
 });
 
 //*_____________________________________________
