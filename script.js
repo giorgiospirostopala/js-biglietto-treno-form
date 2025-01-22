@@ -106,7 +106,7 @@ btnGenera.addEventListener("click", function(event) {
 
         }
 
-        // mostro solo due decimali e stampo in console il prezzo finale
+        // mostro solo due decimali e stampo in pagina il prezzo finale
         prezzoFinale = prezzoFinale.toFixed(2);
 
         // stampo i dati inseriti e il prezzo finale su pagina
@@ -120,6 +120,11 @@ btnGenera.addEventListener("click", function(event) {
         }
 
         biglietto.classList.remove("d-none");
+
+        console.log(`Nome: ${nomeUtente}`);
+        console.log(`Km: ${chilometri}`);
+        console.log(`Età: ${etaUtente}`);
+        console.log(`Prezzo biglietto: € ${prezzoFinale}`);
 
     }
 
